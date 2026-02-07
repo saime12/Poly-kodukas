@@ -9,12 +9,18 @@ let miner = false
 const upgrades = document.querySelector('#upgrades')
 let minerCount = 0
 const optsionsDiv = document.querySelector('#bulkOptsions')
+let minerPrice = 200
+const price2 = document.querySelector('.price2')
+
+const priceMultiplier = function() {
+	minerPrice = (minerPrice * 2) 
+}
 
 const save = function() {
 	localStorage.setItem('miner', JSON.stringify(miner))
 	localStorage.setItem('double', JSON.stringify(double))
 	localStorage.setItem('cookies', JSON.stringify(cookies))
-	localStorage.setItem('minerCount', JSON.stringify(minerCount))	
+	localStorage.setItem('minerCount', JSON.stringify(minerCount))
 }
 
 const load = function() {
@@ -22,20 +28,9 @@ const load = function() {
 	double = JSON.parse(localStorage.getItem('double'))
 	cookies = JSON.parse(localStorage.getItem('cookies'))
 	minerCount = JSON.parse(localStorage.getItem('minerCount'))
-}
+} 
 
 load()
-
-minerBuy.addEventListener('click', function() {
-	if(number.textContent >= 200) {
-		miner = true
-		cookies = cookies - 200
-		minerCount = minerCount + 1
-		upgrades.textContent = "Miners:" + " " + minerCount
-		return number.textContent = cookies
-	}
-})
-
 checkMiner()
 upgrades.textContent = "Miners:" + " " + minerCount
 
@@ -48,7 +43,7 @@ buyBtn.addEventListener('click', function() {
 		cookies = cookies - 100
 		return number.textContent = cookies
 	}
-})
+}) 
 
 function mining() {
 	cookies = cookies + (1 * minerCount)
@@ -75,7 +70,6 @@ button.addEventListener('click', function() {
 	save()
 })
 
-
 const newButton1 = document.createElement("button")
 const newButton2 = document.createElement("button")
 const newButton3 = document.createElement("button")
@@ -88,8 +82,79 @@ newButton3.innerText = "100x"
 optsionsDiv.appendChild(newButton1)
 optsionsDiv.appendChild(newButton2)
 optsionsDiv.appendChild(newButton3)
+let activeButton;
+let active1 = false
+let active10 = false
+let active100 = false
+let total1;
+let total10;
+let total100;
 
-newButton3.addEventListener('click', function() {
-	
+newButton1.addEventListener('click', function() {
+	active1 = true
+	active10 = false
+	active100 = false
+	activeButton = active1
 })
 
+newButton2.addEventListener('click', function() {
+	active10 = true
+	active1 = false
+	active100 = false
+	activeButton = active10
+})
+
+newButton3.addEventListener('click', function() {
+	active100 = true
+	active10 = false
+	active1 = false
+	activeButton = active100
+})
+
+minerBuy.addEventListener('click', function() {
+	if(activeButton === active1) {
+		priceMultiplier()
+		total1  = minerPrice * 1
+		if(number.textContent >= total1) {
+			miner = true
+			cookies = cookies - total1
+			minerCount = minerCount + 1
+			upgrades.textContent = "Miners:" + " " + minerCount
+			price2.textContent = 1 * (2 * minerPrice)
+			return number.textContent = cookies
+		}
+		else if(number.textContent < total1) {
+			alert("You dont have enough cookies!")
+		}
+	}
+	if(activeButton === active10) {
+		priceMultiplier()
+		total10  = 10 * minerPrice
+		if(number.textContent >= total10) {
+			miner = true
+			cookies = cookies - total10
+			minerCount = minerCount + 10
+			upgrades.textContent = "Miners:" + " " + minerCount
+			price2.textContent = 10 * (2 * minerPrice)
+			return number.textContent = cookies
+		}
+		else if(number.textContent < total10) {
+			alert("You dont have enough cookies!")
+		}
+	}
+	if(activeButton === active100) {
+		priceMultiplier()
+		total100 =  minerPrice * 100
+		if(number.textContent >= total100) {
+			miner = true
+			cookies = cookies - total100
+			minerCount = minerCount + 100
+			upgrades.textContent = "Miners:" + " " + minerCount
+			price2.textContent = 100 * (2 * minerPrice)
+			return number.textContent = cookies
+		}
+		else if(number.textContent < total100) {
+			alert("You dont have enough cookies!")
+		}
+	}
+})
