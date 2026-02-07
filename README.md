@@ -1,6 +1,6 @@
 # koduleht
 
-Lauaviina koduleht!
+cookie clicker!
 
 
 

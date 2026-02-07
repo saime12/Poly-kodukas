@@ -1,30 +1,24 @@
 const button = document.querySelector('#button')
 const number = document.querySelector('#text')
-let clicked = 0;
+const buyBtn = document.querySelector('button.buy')
 let double = false
-const btn2 = document.querySelector('button.buy')
+let cookies = 0
 
-cockies = number.textContent
-
-btn2.addEventListener('click', function() {
-
-	if(number.textContent === 1) {
+buyBtn.addEventListener('click', function() {
+	if(number.textContent >= 100) {
 		double = true
-
-
+		cookies = cookies - 100
+		return number.textContent = cookies
 	}
 })
-
-console.log(cockies)
 
 button.addEventListener('click', function() {
 	if(double === true) {
-		clicked = clicked + 2
+		cookies = cookies + 2
+		return number.textContent = cookies
 	}
 	else {
-		clicked = clicked + 1
-		number.textContent = clicked
+		cookies = cookies + 1
+		number.textContent = cookies
 	}
 })
-
-
