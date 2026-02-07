@@ -12,7 +12,7 @@ body {
 }
 
 .shop div {
-  background-color: rgb(105, 120, 216);
+  background-color: gray;
   border-radius: 10px;
 }
 
@@ -41,7 +41,7 @@ body {
   border-radius: 5px;
 }
 
-.shop div button {
+.buy {
   display: flex;
   text-align: left;
   align-items: center;
@@ -57,3 +57,22 @@ body {
   background-color: #5d5b5b;
 }
 
+.price1 {
+  margin-left: auto;
+}
+
+.price2 {
+  margin-left: auto;
+}
+
+#bulkOptsions {
+  background-color: lightblue;
+}
+
+.bulkButton {
+  display: inline-flexbox;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  justify-content: center;
+}

@@ -8,6 +8,7 @@ const perSec = document.querySelector('#per-sec')
 let miner = false
 const upgrades = document.querySelector('#upgrades')
 let minerCount = 0
+const optsionsDiv = document.querySelector('#bulkOptsions')
 
 const save = function() {
 	localStorage.setItem('miner', JSON.stringify(miner))
@@ -73,3 +74,22 @@ button.addEventListener('click', function() {
 	}
 	save()
 })
+
+
+const newButton1 = document.createElement("button")
+const newButton2 = document.createElement("button")
+const newButton3 = document.createElement("button")
+newButton1.className = "bulkButton"
+newButton1.innerText = "1x"
+newButton2.className = "bulkButton"
+newButton2.innerText = "10x"
+newButton3.className = "bulkButton"
+newButton3.innerText = "100x"
+optsionsDiv.appendChild(newButton1)
+optsionsDiv.appendChild(newButton2)
+optsionsDiv.appendChild(newButton3)
+
+newButton3.addEventListener('click', function() {
+	
+})
+
