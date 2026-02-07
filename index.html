@@ -7,15 +7,35 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<div>
-<h1>Cookie clicker!</h1>
-<button id="button"><img src="cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTExL2ZyZWVpbWFnZXNjb21wYW55X3Bob3RvX29mX2Nob2NvbGF0ZV9jaGlwX2Nvb2tpZV90b3Bfdmlld19pc29sYV8xOGVkY2ZiYS00ZTJjLTQ5MWItYjZiOC02ZGZjNmY1M2Y0OWIucG5n.webp" width="200px" height="auto" /></button>
-<p id="text">0</p>
+
+<div class="cookie">
+	<h1>Cookie clicker!</h1>
+	<button id="button"><img src="cookie.png" width="200px" height="auto" /></button>
+	<div class="row">
+		<p>cookies:</p>
+		<p id="text">0</p>
+	</div>
+	<div class="row-sec">
+		<p>cookies per sec:</p>
+		<p id="per-sec">0</p>
+	</div>
 </div>
+
+<div class="upgrades">
+	<h1>your upgrades</h1>
+	<div>
+		<p id="upgrades"></p>
+	</div>
+</div>
+
 <div class="shop">
 	<h1>upgrade!</h1>
-	<button class="buy">Buy</button>
+	<div>
+		<p>upgrade clicker for 100 cookies</p><button class="buy">buy</button>
+		<p>buy cookie miner for 200 cookies</p><button id="buyMiner">buy</button>
+	</div>
 </div>
+
 	<script src="script.js"></script>
 </body>
-</html>
+</html> 

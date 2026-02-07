@@ -1,7 +1,46 @@
-div {
+.cookie {
   text-align: center;
 }
 
 body {
   background: lightblue;
+}
+
+.shop h1 {
+  text-align: center;
+}
+
+.shop div {
+  background-color: white;
+  border-radius: 10px;
+}
+
+.shop div button {
+  display: flex;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.row-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.upgrades h1 {
+  text-align: center;
+}
+
+.upgrades div {
+  background: white;
+  border-radius: 5px;
 }
