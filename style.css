@@ -4,6 +4,7 @@
 
 body {
   background: lightblue;
+  margin: 0px;  
 }
 
 .shop h1 {
@@ -11,13 +12,8 @@ body {
 }
 
 .shop div {
-  background-color: white;
+  background-color: rgb(105, 120, 216);
   border-radius: 10px;
-}
-
-.shop div button {
-  display: flex;
-  justify-content: center;
 }
 
 .row {
@@ -41,6 +37,23 @@ body {
 }
 
 .upgrades div {
-  background: white;
+  background: rgb(105, 120, 216);
   border-radius: 5px;
 }
+
+.shop div button {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  width: 100vw;
+  border-radius: 5px;
+  border: gray;
+  height: 40px;
+  background: #858585;
+  background: radial-gradient(left,rgba(133, 133, 133, 1) 6%, rgba(84, 77, 77, 1) 100%);
+}
+
+.shop div button:hover {
+  background-color: #5d5b5b;
+}
+

@@ -4,28 +4,16 @@ const buyBtn = document.querySelector('button.buy')
 let double = false
 let cookies = 0
 const minerBuy = document.querySelector('#buyMiner')
-const perSec = document.querySelector('#per-sec').textContent
+const perSec = document.querySelector('#per-sec')
 let miner = false
 const upgrades = document.querySelector('#upgrades')
 let minerCount = 0
-
-minerBuy.addEventListener('click', function() {
-	if(number.textContent >= 200) {
-		miner = true
-		cookies = cookies - 200
-		minerCount++
-		checkMiner()
-		return number.textContent = cookies
-	}
-})
-
-
 
 const save = function() {
 	localStorage.setItem('miner', JSON.stringify(miner))
 	localStorage.setItem('double', JSON.stringify(double))
 	localStorage.setItem('cookies', JSON.stringify(cookies))
-	localStorage.setItem('minerCount', JSON.stringify(cookies))
+	localStorage.setItem('minerCount', JSON.stringify(minerCount))	
 }
 
 const load = function() {
@@ -36,7 +24,19 @@ const load = function() {
 }
 
 load()
+
+minerBuy.addEventListener('click', function() {
+	if(number.textContent >= 200) {
+		miner = true
+		cookies = cookies - 200
+		minerCount = minerCount + 1
+		upgrades.textContent = "Miners:" + " " + minerCount
+		return number.textContent = cookies
+	}
+})
+
 checkMiner()
+upgrades.textContent = "Miners:" + " " + minerCount
 
 buyBtn.addEventListener('click', function() {
 	if(double === true) {
@@ -50,8 +50,9 @@ buyBtn.addEventListener('click', function() {
 })
 
 function mining() {
-	cookies++
+	cookies = cookies + (1 * minerCount)
 	number.textContent = cookies
+	perSec.textContent = minerCount
 	save()
 }
 
@@ -67,7 +68,7 @@ button.addEventListener('click', function() {
 		return number.textContent = cookies
 	}
 	else {
-		cookies = cookies + 100
+		cookies = cookies + 1
 		number.textContent = cookies
 	}
 	save()
