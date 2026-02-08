@@ -11,10 +11,9 @@ let minerCount = 0
 const optsionsDiv = document.querySelector('#bulkOptsions')
 let minerPrice = 200
 const price2 = document.querySelector('.price2')
-
-const priceMultiplier = function() {
-	minerPrice = (minerPrice * 2) 
-}
+let minerPrice1 = 0
+let minerPrice10 = 0
+let minerPrice100 = 0
 
 const save = function() {
 	localStorage.setItem('miner', JSON.stringify(miner))
@@ -96,7 +95,7 @@ newButton1.addEventListener('click', function() {
 	active10 = false
 	active100 = false
 	activeButton = active1
-	price2.textContent = 1 * (2 * minerPrice)
+
 })
 
 newButton2.addEventListener('click', function() {
@@ -104,7 +103,7 @@ newButton2.addEventListener('click', function() {
 	active1 = false
 	active100 = false
 	activeButton = active10
-	price2.textContent = 10 * (2 * minerPrice)
+	price2.textContent = minerPrice
 })
 
 newButton3.addEventListener('click', function() {
@@ -112,12 +111,11 @@ newButton3.addEventListener('click', function() {
 	active10 = false
 	active1 = false
 	activeButton = active100
-	price2.textContent = 100 * (2 * minerPrice)
+	price2.textContent = minerPrice
 })
 
 minerBuy.addEventListener('click', function() {
 	if(activeButton === active1) {
-		priceMultiplier()
 		total1  = minerPrice * 1
 		if(number.textContent >= total1) {
 			miner = true
@@ -131,7 +129,6 @@ minerBuy.addEventListener('click', function() {
 		}
 	}
 	if(activeButton === active10) {
-		priceMultiplier()
 		total10  = 10 * minerPrice
 		if(number.textContent >= total10) {
 			miner = true
@@ -145,8 +142,7 @@ minerBuy.addEventListener('click', function() {
 		}
 	}
 	if(activeButton === active100) {
-		priceMultiplier()
-		total100 =  minerPrice * 100
+		total100 =  minerPrice
 		if(number.textContent >= total100) {
 			miner = true
 			cookies = cookies - total100
@@ -159,3 +155,9 @@ minerBuy.addEventListener('click', function() {
 		}
 	}
 })
+
+const priceMultiplier = function() {
+	minerPrice1 = 1 * (minerPrice * 2) 
+	minerPrice10 = 10 * (minerPrice * 2)
+	minerPrice100 = 100 * (minerPrice * 2)
+}
