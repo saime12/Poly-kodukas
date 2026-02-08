@@ -46,9 +46,10 @@ buyBtn.addEventListener('click', function() {
 }) 
 
 function mining() {
-	cookies = cookies + (1 * minerCount)
+	miningTotal = minerCount * 10
+	cookies = cookies + miningTotal
 	number.textContent = cookies
-	perSec.textContent = minerCount
+	perSec.textContent = miningTotal
 	save()
 }
 
@@ -95,6 +96,7 @@ newButton1.addEventListener('click', function() {
 	active10 = false
 	active100 = false
 	activeButton = active1
+	price2.textContent = 1 * (2 * minerPrice)
 })
 
 newButton2.addEventListener('click', function() {
@@ -102,6 +104,7 @@ newButton2.addEventListener('click', function() {
 	active1 = false
 	active100 = false
 	activeButton = active10
+	price2.textContent = 10 * (2 * minerPrice)
 })
 
 newButton3.addEventListener('click', function() {
@@ -109,6 +112,7 @@ newButton3.addEventListener('click', function() {
 	active10 = false
 	active1 = false
 	activeButton = active100
+	price2.textContent = 100 * (2 * minerPrice)
 })
 
 minerBuy.addEventListener('click', function() {
@@ -120,7 +124,6 @@ minerBuy.addEventListener('click', function() {
 			cookies = cookies - total1
 			minerCount = minerCount + 1
 			upgrades.textContent = "Miners:" + " " + minerCount
-			price2.textContent = 1 * (2 * minerPrice)
 			return number.textContent = cookies
 		}
 		else if(number.textContent < total1) {
@@ -135,7 +138,6 @@ minerBuy.addEventListener('click', function() {
 			cookies = cookies - total10
 			minerCount = minerCount + 10
 			upgrades.textContent = "Miners:" + " " + minerCount
-			price2.textContent = 10 * (2 * minerPrice)
 			return number.textContent = cookies
 		}
 		else if(number.textContent < total10) {
@@ -150,7 +152,6 @@ minerBuy.addEventListener('click', function() {
 			cookies = cookies - total100
 			minerCount = minerCount + 100
 			upgrades.textContent = "Miners:" + " " + minerCount
-			price2.textContent = 100 * (2 * minerPrice)
 			return number.textContent = cookies
 		}
 		else if(number.textContent < total100) {

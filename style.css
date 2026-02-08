@@ -76,3 +76,9 @@ body {
   text-align: center;
   justify-content: center;
 }
+
+#bulkOptsions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
