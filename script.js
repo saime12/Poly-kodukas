@@ -83,7 +83,7 @@ optsionsDiv.appendChild(newButton1)
 optsionsDiv.appendChild(newButton2)
 optsionsDiv.appendChild(newButton3)
 let activeButton;
-let active1 = false
+let active1 = true
 let active10 = false
 let active100 = false
 let total1;
@@ -155,9 +155,3 @@ minerBuy.addEventListener('click', function() {
 		}
 	}
 })
-
-const priceMultiplier = function() {
-	minerPrice1 = 1 * (minerPrice * 2) 
-	minerPrice10 = 10 * (minerPrice * 2)
-	minerPrice100 = 100 * (minerPrice * 2)
-}
