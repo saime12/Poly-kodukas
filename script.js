@@ -82,7 +82,7 @@ newButton3.innerText = "100x"
 optsionsDiv.appendChild(newButton1)
 optsionsDiv.appendChild(newButton2)
 optsionsDiv.appendChild(newButton3)
-let activeButton;
+let activeButton = active1
 let active1 = true
 let active10 = false
 let active100 = false
@@ -90,12 +90,15 @@ let total1;
 let total10;
 let total100;
 
+
 newButton1.addEventListener('click', function() {
 	active1 = true
 	active10 = false
 	active100 = false
 	activeButton = active1
-
+	newButton1.classList.add("bulkButtonActive")
+	newButton3.classList.remove("bulkButtonActive")
+	newButton2.classList.remove("bulkButtonActive")
 })
 
 newButton2.addEventListener('click', function() {
@@ -103,7 +106,9 @@ newButton2.addEventListener('click', function() {
 	active1 = false
 	active100 = false
 	activeButton = active10
-	price2.textContent = minerPrice
+	newButton2.classList.add("bulkButtonActive")
+	newButton1.classList.remove("bulkButtonActive")
+	newButton3.classList.remove("bulkButtonActive")
 })
 
 newButton3.addEventListener('click', function() {
@@ -111,7 +116,9 @@ newButton3.addEventListener('click', function() {
 	active10 = false
 	active1 = false
 	activeButton = active100
-	price2.textContent = minerPrice
+	newButton3.classList.add("bulkButtonActive")
+	newButton1.classList.remove("bulkButtonActive")
+	newButton2.classList.remove("bulkButtonActive")
 })
 
 minerBuy.addEventListener('click', function() {
@@ -142,7 +149,7 @@ minerBuy.addEventListener('click', function() {
 		}
 	}
 	if(activeButton === active100) {
-		total100 =  minerPrice
+		total100 =  minerPrice * 100
 		if(number.textContent >= total100) {
 			miner = true
 			cookies = cookies - total100
@@ -155,3 +162,7 @@ minerBuy.addEventListener('click', function() {
 		}
 	}
 })
+
+const priceMultiplyer = function() {
+	
+}

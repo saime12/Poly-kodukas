@@ -65,20 +65,23 @@ body {
   margin-left: auto;
 }
 
-#bulkOptsions {
-  background-color: lightblue;
-}
-
 .bulkButton {
-  display: inline-flexbox;
+  display: inline-flex;
   width: 100px;
   height: 40px;
   text-align: center;
   justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
 #bulkOptsions {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: lightblue;
+}
+
+.bulkButtonActive {
+  color: green;
 }
