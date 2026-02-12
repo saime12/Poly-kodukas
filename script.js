@@ -82,7 +82,7 @@ newButton3.innerText = "100x"
 optsionsDiv.appendChild(newButton1)
 optsionsDiv.appendChild(newButton2)
 optsionsDiv.appendChild(newButton3)
-let activeButton = active1
+let activeButton;
 let active1 = true
 let active10 = false
 let active100 = false
